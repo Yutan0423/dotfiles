@@ -6,8 +6,8 @@ return {
       gamma = 1.00, -- adjust the brightness of the theme
       styles = {
           comments = { italic = true }, -- style for comments
-          keywords = { italic = true }, -- style for keywords
-          identifiers = { italic = true }, -- style for identifiers
+          keywords = { italic = false }, -- style for keywords
+          identifiers = { italic = false }, -- style for identifiers
           functions = {}, -- style for functions
           variables = {}, -- style for variables
       },
@@ -39,18 +39,30 @@ return {
     end
   },
   {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" }
+  },
+  {
     'numToStr/Comment.nvim',
     config = function()
       require('config/comment')
     end
   },
+  -- {
+  --   'nvim-tree/nvim-tree.lua',
+  --   dependencies = {
+  --     'nvim-tree/nvim-web-devicons',
+  --   },
+  --   config = function()
+  --     require('config/nvim-tree')
+  --   end
+  -- },
   {
-    'nvim-tree/nvim-tree.lua',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-    },
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.5',
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
-      require('config/nvim-tree')
+      require('config/telescope')
     end
   },
   {
